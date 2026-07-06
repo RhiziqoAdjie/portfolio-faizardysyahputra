@@ -1,0 +1,47 @@
+{
+  "name": "Faiz ArdySyahputra, S.T.",
+  "role_en": "Civil Engineer | Structural Design Enthusiast",
+  "role_id": "Insinyur Teknik Sipil | Peminat Desain Struktur",
+  "tagline_en": "Building strong foundations, from blueprint to reality.",
+  "tagline_id": "Membangun fondasi yang kuat, dari gambar rencana hingga kenyataan.",
+  "about_en": "I am a civil engineer with a passion for structural design, construction management, and sustainable infrastructure. With hands-on experience in building and bridge projects, I enjoy turning technical drawings into safe, efficient, and long-lasting structures.",
+  "about_id": "Saya seorang insinyur teknik sipil dengan minat pada desain struktur, manajemen konstruksi, dan infrastruktur berkelanjutan. Dengan pengalaman langsung pada proyek gedung dan jembatan, saya senang mengubah gambar teknis menjadi struktur yang aman, efisien, dan tahan lama.",
+  "email": "faizardy46@email.com",
+  "phone": "+62 899-8322-523",
+  "location_en": "Sidoarjo, Indonesia",
+  "location_id": "Sidoarjo, Indonesia",
+  "photo": "/uploads/1783326104100-f3f2bbb3.PNG",
+  "photo_about": "/uploads/1783327017731-92a6850d.PNG",
+  "cv": "/uploads/CV - Faiz ArdySyahputra.pdf",
+  "social": {
+    "linkedin": "https://linkedin.com/in/faiz-ardysyahputra-771690209",
+    "instagram": "https://instagram.com/faizardy",
+    "github": ""
+  },
+  "skills": [
+    {
+      "name": "AutoCAD",
+      "level": 90
+    },
+    {
+      "name": "SAP2000 / ETABS",
+      "level": 85
+    },
+    {
+      "name": "Manajemen Konstruksi",
+      "level": 80
+    },
+    {
+      "name": "Microsoft Project",
+      "level": 75
+    },
+    {
+      "name": "Estimasi RAB",
+      "level": 85
+    },
+    {
+      "name": "SketchUp / Revit",
+      "level": 70
+    }
+  ]
+}

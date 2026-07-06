@@ -1,0 +1,32 @@
+[
+  {
+    "id": "cert-1",
+    "title_en": "Certified Structural Analysis with SAP2000",
+    "title_id": "Sertifikasi Analisis Struktur dengan SAP2000",
+    "issuer": "PT Training Rekayasa Indonesia",
+    "date": "2023-09",
+    "credential_id": "CERT-SAP2000-2023-0456",
+    "image": "/uploads/certificate-placeholder-1.svg",
+    "url": ""
+  },
+  {
+    "id": "cert-2",
+    "title_en": "Ahli Muda K3 Konstruksi (Junior Construction Safety Expert)",
+    "title_id": "Ahli Muda K3 Konstruksi",
+    "issuer": "Kementerian PUPR",
+    "date": "2023-03",
+    "credential_id": "K3-AM-2023-1122",
+    "image": "/uploads/certificate-placeholder-2.svg",
+    "url": ""
+  },
+  {
+    "id": "cert-3",
+    "title_en": "Project Management Fundamentals",
+    "title_id": "Dasar-Dasar Manajemen Proyek",
+    "issuer": "Coursera - PMI",
+    "date": "2022-11",
+    "credential_id": "PM-FUND-2022-9981",
+    "image": "/uploads/certificate-placeholder-3.svg",
+    "url": ""
+  }
+]

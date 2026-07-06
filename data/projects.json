@@ -1,0 +1,60 @@
+[
+  {
+    "id": "proj-1",
+    "title_en": "3-Story Office Building Structural Design",
+    "title_id": "Desain Struktur Gedung Kantor 3 Lantai",
+    "description_en": "Designed the reinforced concrete structural system for a 3-story office building, including foundation, columns, beams, and slab analysis using SAP2000.",
+    "description_id": "Merancang sistem struktur beton bertulang untuk gedung kantor 3 lantai, meliputi pondasi, kolom, balok, dan analisis pelat lantai menggunakan SAP2000.",
+    "category": "Structural",
+    "year": "2024",
+    "location": "Surabaya, Indonesia",
+    "image": "",
+    "images": [],
+    "tags": [
+      "SAP2000",
+      "AutoCAD",
+      "Beton Bertulang"
+    ],
+    "link": ""
+  },
+  {
+    "id": "proj-2",
+    "title_en": "Concrete Bridge Widening Project",
+    "title_id": "Proyek Pelebaran Jembatan Beton",
+    "description_en": "Supervised the widening of a 40-meter concrete girder bridge, coordinating field execution with the structural drawings and quality control.",
+    "description_id": "Mengawasi pelebaran jembatan girder beton sepanjang 40 meter, mengoordinasikan pelaksanaan lapangan dengan gambar struktur dan pengendalian mutu.",
+    "category": "Infrastructure",
+    "year": "2023",
+    "location": "Sidoarjo, Indonesia",
+    "image": "/uploads/project-placeholder-2.svg",
+    "images": [
+      "/uploads/project-placeholder-2.svg"
+    ],
+    "tags": [
+      "Manajemen Konstruksi",
+      "Jembatan",
+      "QC"
+    ],
+    "link": ""
+  },
+  {
+    "id": "proj-3",
+    "title_en": "Residential Housing Cluster Planning",
+    "title_id": "Perencanaan Klaster Perumahan",
+    "description_en": "Prepared site layout, drainage planning, and cost estimation (RAB) for a 50-unit residential housing cluster.",
+    "description_id": "Menyusun tata letak lahan, perencanaan drainase, dan estimasi biaya (RAB) untuk klaster perumahan 50 unit.",
+    "category": "Planning",
+    "year": "2022",
+    "location": "Gresik, Indonesia",
+    "image": "/uploads/project-placeholder-3.svg",
+    "images": [
+      "/uploads/project-placeholder-3.svg"
+    ],
+    "tags": [
+      "RAB",
+      "Drainase",
+      "Site Plan"
+    ],
+    "link": ""
+  }
+]

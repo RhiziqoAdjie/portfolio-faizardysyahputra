@@ -1,0 +1,50 @@
+[
+  {
+    "id": "exp-1",
+    "position_en": "Admin Engineering & Quantity Surveyor",
+    "position_id": "Admin Engineering & Quantity Surveyor",
+    "company": "PT Petra Anugrah Sejahtera",
+    "start_date": "2022-01",
+    "end_date": "2024-12",
+    "location": "Surabaya, Indonesia",
+    "description_en": "Managed engineering administration, including project documentation, reporting, scheduling, and billing. Prepared technical documents such as BoQ, BBS, RAB, AHSP, shop drawings, as-built drawings, and contract addendums while overseeing quantity and quality control. Coordinated with subcontractors, consultants, and project owners, and delivered technical presentations for pre-contract meetings.",
+    "description_id": "Mengelola administrasi engineering, termasuk dokumentasi proyek, pelaporan, penjadwalan, dan proses penagihan. Menyusun dokumen teknis seperti BoQ, BBS, RAB, AHSP, shop drawing, as-built drawing, serta addendum kontrak, sekaligus melakukan pengendalian kuantitas dan kualitas pekerjaan. Berkoordinasi dengan subkontraktor, konsultan, dan pemilik proyek, serta menyampaikan presentasi teknis pada pertemuan pra-kontrak.",
+    "type": "work"
+  },
+  {
+    "id": "exp-2",
+    "position_en": "Building Runaway Engineer",
+    "position_id": "Building Runaway Engineer",
+    "company": "UPBU Kelas III Dewandaru Karimun Jawa",
+    "start_date": "2021-01",
+    "end_date": "2021-12",
+    "location": "Jepara, Indonesia",
+    "description_en": "Managed daily inspections process and identified price analysis for RAB appropriate to of work also facility maintenance, Crafted periodically of the reporting flow and gathered the whole documents related to engineer submission reports, & Planned end-to-end budgeting and patch runway to maintain the airport area building to ensure smooth project execution",
+    "description_id": "Mengelola proses inspeksi harian dan mengidentifikasi analisis harga untuk RAB yang sesuai dengan pekerjaan serta pemeliharaan fasilitas, Menyusun alur pelaporan secara berkala dan mengumpulkan seluruh dokumen terkait laporan pengajuan teknik, & Merencanakan penganggaran dari awal hingga akhir dan perbaikan landasan pacu untuk memelihara bangunan area bandara guna memastikan kelancaran pelaksanaan proyek.",
+    "type": "work"
+  },
+  {
+    "id": "exp-3",
+    "position_en": "Bachelor of Civil Engineering",
+    "position_id": "Sarjana Teknik Sipil",
+    "company": "Universitas Merdeka Malang",
+    "start_date": "2020",
+    "end_date": "2024",
+    "location": "Malang, Indonesia",
+    "description_en": "Graduated with a focus on structural engineering and construction management. Final thesis on seismic performance of reinforced concrete frames.",
+    "description_id": "Lulus dengan fokus pada teknik struktur dan manajemen konstruksi. Skripsi mengenai kinerja seismik pada portal beton bertulang.",
+    "type": "education"
+  },
+  {
+    "id": "expe-1783325456941",
+    "position_en": "Spv. Estimator Engineer / Civil Engineer",
+    "position_id": "Spv. Estimator Engineer / Civil Engineer",
+    "company": "PT LSS Global Kontraktor (Design and Build)",
+    "start_date": "2025-01 ",
+    "end_date": "Present",
+    "location": "Sidoarjo, Indonesia",
+    "description_en": "Supervised cost estimation and project planning for civil, structural, and architectural works by preparing quantity take-offs, BoQ, AHSP, MTO, and construction/shop drawings. Managed bidding and tender processes, negotiated with vendors and subcontractors, monitored project costs and progress, handled CCO/addendums until final quantity, and coordinated with project teams, clients, and vendors to ensure successful project execution. Projects included warehouses, factories, mining facilities, cafés, sport centers, and other low- to mid-rise buildings.",
+    "description_id": "Mengawasi estimasi biaya dan perencanaan proyek pekerjaan sipil, struktur, dan arsitektur dengan menyusun quantity take-off, BoQ, AHSP, MTO, serta gambar tender dan shop drawing. Mengelola proses bidding dan tender, melakukan negosiasi dengan vendor dan subkontraktor, memantau biaya dan progres proyek, menangani CCO/addendum hingga final quantity, serta berkoordinasi dengan tim proyek, klien, dan vendor untuk memastikan pelaksanaan proyek berjalan dengan baik. Proyek yang ditangani meliputi gudang, pabrik, fasilitas pertambangan, kafe, sport center, dan bangunan low hingga middle rise.",
+    "type": "work"
+  }
+]

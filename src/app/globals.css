@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-body bg-paper text-ink transition-colors duration-300;
+}
+
+.dark body {
+  @apply bg-blueprint text-textLight;
+}
+
+::selection {
+  @apply bg-rust/30;
+}
+.dark ::selection {
+  @apply bg-cyanLine/30;
+}
+
+/* Blueprint grid background, used site-wide behind content */
+.blueprint-bg {
+  background-color: theme("colors.paper");
+  background-image: theme("backgroundImage.blueprint-grid-light");
+  background-size: theme("backgroundSize.grid");
+}
+.dark .blueprint-bg {
+  background-color: theme("colors.blueprint");
+  background-image: theme("backgroundImage.blueprint-grid-dark");
+  background-size: theme("backgroundSize.grid");
+}
+
+/* Corner crosshair / drafting marks used as decorative motif */
+.blueprint-corner::before,
+.blueprint-corner::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: theme("colors.steel");
+  opacity: 0.5;
+}
+.dark .blueprint-corner::before,
+.dark .blueprint-corner::after {
+  border-color: theme("colors.cyanLine");
+}
+.blueprint-corner::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+.blueprint-corner::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+.font-display {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+}
+.font-mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Scrollbar styling to match theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: theme("colors.steel");
+  border-radius: 8px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: theme("colors.cyanLine");
+}
+
+.animate-fadeUp {
+  animation: fadeUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* ── Shared animation utilities ── */
+.anim-hidden        { opacity: 0; }
+.anim-fade-up       { opacity: 0; transform: translateY(24px); }
+.anim-fade-left     { opacity: 0; transform: translateX(-32px); }
+.anim-fade-right    { opacity: 0; transform: translateX(32px); }
+.anim-fade-scale    { opacity: 0; transform: scale(0.94); }
+
+.anim-visible {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: opacity 0.9s cubic-bezier(.22,1,.36,1),
+              transform 0.9s cubic-bezier(.22,1,.36,1);
+}
+
+/* Stagger delays */
+.anim-delay-1  { transition-delay: 0.12s; }
+.anim-delay-2  { transition-delay: 0.24s; }
+.anim-delay-3  { transition-delay: 0.36s; }
+.anim-delay-4  { transition-delay: 0.48s; }
+.anim-delay-5  { transition-delay: 0.60s; }
+.anim-delay-6  { transition-delay: 0.72s; }
+
+/* Skill bar fill */
+@keyframes fillBar {
+  from { width: 0%; }
+}
+.anim-bar-fill {
+  animation: none;
+}
+.anim-bar-fill.bar-animate {
+  animation: fillBar 0.9s cubic-bezier(.22,1,.36,1) forwards;
+}

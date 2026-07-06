@@ -1,0 +1,27 @@
+{
+  "name": "civil-engineer-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio website bertema struktur & kerangka bangunan untuk profesional Teknik Sipil, dibangun dengan Next.js + Tailwind CSS. Dilengkapi panel admin sederhana agar konten (project, experience, certificate) mudah diupdate tanpa menyentuh kode.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "10.4.19",
+    "postcss": "8.4.38",
+    "tailwindcss": "3.4.4",
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.5"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  }
+}
