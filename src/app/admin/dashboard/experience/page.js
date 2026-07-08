@@ -115,7 +115,7 @@ export default function AdminExperiencePage() {
               <input className={inputClass} required placeholder="2023-01" value={editing.start_date} onChange={(e) => setEditing((p) => ({ ...p, start_date: e.target.value }))} />
             </div>
             <div>
-              <label className={labelClass}>End Date (YYYY-MM or "Present")</label>
+              <label className={labelClass}>End Date (YYYY-MM or &quot;Present&quot;)</label>
               <input className={inputClass} required placeholder="Present" value={editing.end_date} onChange={(e) => setEditing((p) => ({ ...p, end_date: e.target.value }))} />
             </div>
             <div>
