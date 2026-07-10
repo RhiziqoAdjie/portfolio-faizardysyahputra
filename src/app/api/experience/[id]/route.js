@@ -8,16 +8,26 @@ export async function PUT(request, { params }) {
   const authError = requireAuth();
   if (authError) return authError;
 
-  const body = await request.json();
-  const updated = await updateItem("experience", params.id, body);
-  if (!updated) return NextResponse.json({ success: false, message: "Not found" }, { status: 404 });
-  return NextResponse.json({ success: true, data: updated });
+  try {
+    const body = await request.json();
+    const updated = await updateItem("experience", params.id, body);
+    if (!updated) return NextResponse.json({ success: false, message: "Not found" }, { status: 404 });
+    return NextResponse.json({ success: true, data: updated });
+  } catch (err) {
+    console.error("PUT experience error:", err);
+    return NextResponse.json({ success: false, message: err.message }, { status: 500 });
+  }
 }
 
 export async function DELETE(request, { params }) {
   const authError = requireAuth();
   if (authError) return authError;
 
-  const list = await deleteItem("experience", params.id);
-  return NextResponse.json({ success: true, data: list });
+  try {
+    const list = await deleteItem("experience", params.id);
+    return NextResponse.json({ success: true, data: list });
+  } catch (err) {
+    console.error("DELETE experience error:", err);
+    return NextResponse.json({ success: false, message: err.message }, { status: 500 });
+  }
 }

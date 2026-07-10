@@ -1,5 +1,17 @@
 import fs from "fs/promises";
 import path from "path";
+import defaultProfile from "../../data/profile.json";
+import defaultProjects from "../../data/projects.json";
+import defaultExperience from "../../data/experience.json";
+import defaultCertificates from "../../data/certificates.json";
+
+const DEFAULTS = {
+  profile: defaultProfile,
+  projects: defaultProjects,
+  experience: defaultExperience,
+  certificates: defaultCertificates,
+};
+
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
@@ -70,9 +82,14 @@ async function readJSON(key) {
 }
 
 async function readLocalJSON(key) {
-  const filePath = path.join(DATA_DIR, FILES[key]);
-  const raw = await fs.readFile(filePath, "utf-8");
-  return JSON.parse(raw);
+  try {
+    const filePath = path.join(DATA_DIR, FILES[key]);
+    const raw = await fs.readFile(filePath, "utf-8");
+    return JSON.parse(raw);
+  } catch (err) {
+    console.warn(`Local file read failed for ${key}, using bundled default:`, err.message);
+    return DEFAULTS[key];
+  }
 }
 
 async function writeJSON(key, data) {

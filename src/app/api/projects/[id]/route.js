@@ -8,16 +8,26 @@ export async function PUT(request, { params }) {
   const authError = requireAuth();
   if (authError) return authError;
 
-  const body = await request.json();
-  const updated = await updateItem("projects", params.id, body);
-  if (!updated) return NextResponse.json({ success: false, message: "Not found" }, { status: 404 });
-  return NextResponse.json({ success: true, data: updated });
+  try {
+    const body = await request.json();
+    const updated = await updateItem("projects", params.id, body);
+    if (!updated) return NextResponse.json({ success: false, message: "Not found" }, { status: 404 });
+    return NextResponse.json({ success: true, data: updated });
+  } catch (err) {
+    console.error("PUT project error:", err);
+    return NextResponse.json({ success: false, message: err.message }, { status: 500 });
+  }
 }
 
 export async function DELETE(request, { params }) {
   const authError = requireAuth();
   if (authError) return authError;
 
-  const list = await deleteItem("projects", params.id);
-  return NextResponse.json({ success: true, data: list });
+  try {
+    const list = await deleteItem("projects", params.id);
+    return NextResponse.json({ success: true, data: list });
+  } catch (err) {
+    console.error("DELETE project error:", err);
+    return NextResponse.json({ success: false, message: err.message }, { status: 500 });
+  }
 }
