@@ -28,13 +28,23 @@ export async function POST(request) {
     return NextResponse.json({ success: false, message: "File too large (max 5MB)" }, { status: 400 });
   }
 
-  const buffer = Buffer.from(await file.arrayBuffer());
-  const ext = path.extname(file.name) || ".png";
-  const fileName = `${Date.now()}-${crypto.randomBytes(4).toString("hex")}${ext}`;
-  const uploadDir = path.join(process.cwd(), "public", "uploads");
+  try {
+    const buffer = Buffer.from(await file.arrayBuffer());
+    const ext = path.extname(file.name) || ".png";
+    const fileName = `${Date.now()}-${crypto.randomBytes(4).toString("hex")}${ext}`;
+    const uploadDir = path.join(process.cwd(), "public", "uploads");
 
-  await fs.mkdir(uploadDir, { recursive: true });
-  await fs.writeFile(path.join(uploadDir, fileName), buffer);
+    await fs.mkdir(uploadDir, { recursive: true });
+    await fs.writeFile(path.join(uploadDir, fileName), buffer);
 
-  return NextResponse.json({ success: true, url: `/uploads/${fileName}` });
+    return NextResponse.json({ success: true, url: `/uploads/${fileName}` });
+  } catch (err) {
+    console.warn("Local file write failed, falling back to base64 data URL:", err.message);
+    const buffer = Buffer.from(await file.arrayBuffer());
+    const base64 = buffer.toString("base64");
+    const mimeType = file.type || "image/png";
+    const dataUrl = `data:${mimeType};base64,${base64}`;
+    return NextResponse.json({ success: true, url: dataUrl });
+  }
+
 }

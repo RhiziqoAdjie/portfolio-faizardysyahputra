@@ -10,17 +10,85 @@ const FILES = {
   certificates: "certificates.json",
 };
 
+const hasKV = !!(process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN);
+
+async function getKV(key) {
+  const url = `${process.env.KV_REST_API_URL}/get/${key}`;
+  const res = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
+    },
+    cache: "no-store",
+  });
+  if (!res.ok) {
+    throw new Error(`KV GET failed: ${res.statusText}`);
+  }
+  const data = await res.json();
+  if (data.result === null || data.result === undefined) {
+    return null;
+  }
+  try {
+    return typeof data.result === "string" ? JSON.parse(data.result) : data.result;
+  } catch {
+    return data.result;
+  }
+}
+
+async function setKV(key, data) {
+  const url = `${process.env.KV_REST_API_URL}/set/${key}`;
+  const res = await fetch(url, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) {
+    throw new Error(`KV SET failed: ${res.statusText}`);
+  }
+  return data;
+}
+
 async function readJSON(key) {
+  if (hasKV) {
+    try {
+      const data = await getKV(key);
+      if (data !== null) {
+        return data;
+      }
+      // If Vercel KV doesn't have the data yet, populate it from local files
+      const localData = await readLocalJSON(key);
+      await setKV(key, localData);
+      return localData;
+    } catch (err) {
+      console.error("Vercel KV read error, falling back to local file:", err);
+      return readLocalJSON(key);
+    }
+  }
+  return readLocalJSON(key);
+}
+
+async function readLocalJSON(key) {
   const filePath = path.join(DATA_DIR, FILES[key]);
   const raw = await fs.readFile(filePath, "utf-8");
   return JSON.parse(raw);
 }
 
 async function writeJSON(key, data) {
+  if (hasKV) {
+    try {
+      return await setKV(key, data);
+    } catch (err) {
+      console.error("Vercel KV write error, falling back to local file:", err);
+      // Fall through to local write if KV write fails
+    }
+  }
   const filePath = path.join(DATA_DIR, FILES[key]);
   await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf-8");
   return data;
 }
+
 
 export async function getProfile() {
   return readJSON("profile");

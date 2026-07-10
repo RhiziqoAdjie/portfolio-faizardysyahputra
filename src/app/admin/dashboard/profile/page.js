@@ -36,15 +36,24 @@ export default function AdminProfilePage() {
     e.preventDefault();
     setSaving(true);
     setMessage("");
-    const res = await fetch("/api/profile", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(profile),
-    });
-    const data = await res.json();
-    setSaving(false);
-    setMessage(data.success ? t("admin.saved_success") : "Error");
-    if (data.success) setTimeout(() => setMessage(""), 3000);
+    try {
+      const res = await fetch("/api/profile", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(profile),
+      });
+      if (!res.ok) {
+        throw new Error(`HTTP error ${res.status}`);
+      }
+      const data = await res.json();
+      setMessage(data.success ? t("admin.saved_success") : "Error");
+      if (data.success) setTimeout(() => setMessage(""), 3000);
+    } catch (err) {
+      console.error(err);
+      setMessage("Error: " + err.message);
+    } finally {
+      setSaving(false);
+    }
   };
 
   const inputClass =

@@ -54,6 +54,7 @@ export default function AdminProjectsPage() {
   const handleSave = async (e) => {
     e.preventDefault();
     setSaving(true);
+    setMessage("");
     const imgs = editing.images || [];
     const payload = {
       ...editing,
@@ -66,18 +67,29 @@ export default function AdminProjectsPage() {
     const url = isNew ? "/api/projects" : `/api/projects/${editing.id}`;
     const method = isNew ? "POST" : "PUT";
 
-    const res = await fetch(url, {
-      method,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-    const data = await res.json();
-    setSaving(false);
-    if (data.success) {
-      setMessage(t("admin.saved_success"));
-      closeForm();
-      load();
-      setTimeout(() => setMessage(""), 3000);
+    try {
+      const res = await fetch(url, {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) {
+        throw new Error(`HTTP error ${res.status}`);
+      }
+      const data = await res.json();
+      if (data.success) {
+        setMessage(t("admin.saved_success"));
+        closeForm();
+        load();
+        setTimeout(() => setMessage(""), 3000);
+      } else {
+        setMessage(data.message || "Error");
+      }
+    } catch (err) {
+      console.error(err);
+      setMessage("Error: " + err.message);
+    } finally {
+      setSaving(false);
     }
   };
 
